@@ -90,19 +90,17 @@
       context.stroke();
 
       //MOUSE
-      var mouse_curvature, mouse_length, mouse_start_point, mouse_end_point, mouse_y_point;
+      var mouse_curvature = -1 * curvature_of_mouth_ratio * 50;
+      var mouse_length = width * 1/4 - mouse_curvature;
+
+      var mouse_start_point, mouse_end_point, mouse_y_point;
       if(curvature_of_mouth_ratio > 0.5) {
-        mouse_curvature = -1 * curvature_of_mouth_ratio * 50;
-        mouse_length = width * 1/4 - mouse_curvature;
         mouse_y_point = points[7].y + width * 2/5 + mouse_curvature;
         mouse_start_point = (8+(curvature_of_mouth_ratio * 7))/8 * Math.PI;
         mouse_end_point = (8+(8 - curvature_of_mouth_ratio * 7))/8 * Math.PI;
       }
       else {
-        mouse_curvature = -1 * curvature_of_mouth_ratio * 50;
-        mouse_length = width * 1/4 - mouse_curvature;
         mouse_y_point = points[7].y - width * 1/6 + mouse_curvature;
-
         mouse_start_point = (8 - curvature_of_mouth_ratio * 7)/8 * Math.PI;
         mouse_end_point = (curvature_of_mouth_ratio * 7)/8 * Math.PI;
       }
