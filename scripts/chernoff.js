@@ -32,12 +32,15 @@
     }
 
     $.fn.chernoff = function (objects) {
-      draw(objects.width, objects.height, objects.canvas, objects.half_length_of_eyes_ratio, 
+      draw(objects.canvas, objects.half_length_of_eyes_ratio, 
         objects.position_of_eyes_ratio, objects.angle_of_eyebrow_ratio, objects.curvature_of_mouth_ratio);
       return null;
     };
 
-    function draw(w, h, c, half_length_of_eyes_ratio, position_of_eyes_ratio, angle_of_eyebrow_ratio, curvature_of_mouth_ratio) {
+    function draw(c, half_length_of_eyes_ratio, position_of_eyes_ratio, angle_of_eyebrow_ratio, curvature_of_mouth_ratio) {
+
+      var w = c.width;
+      var h = c.height;
 
       var points = new Array();
       for(var i=1; i<4; i++) {
@@ -57,7 +60,7 @@
       //half_length_of_eyes, slant_of_eyes, position_of_eyes
       var eye_half_length = half_length_of_eyes_ratio * w * 1/6;
       var eye_posiiton_x = points[1].x;
-      var eye_posiiton_y = points[1].y + 30;
+      var eye_posiiton_y = points[1].y + 30 * h/500;
       var eye_position_relative_to_center = position_of_eyes_ratio * w * 1/3;
 
       context.beginPath();
@@ -109,7 +112,7 @@
 
       var mouse_start_point, mouse_end_point, mouse_y_point;
       if(curvature_of_mouth_ratio > 0.5) {
-        mouse_y_point = points[7].y + w * 2/5 + mouse_curvature;
+        mouse_y_point = points[7].y + h * 2/5 + mouse_curvature + (500-h)/5;
         mouse_start_point = (8+(curvature_of_mouth_ratio * 7))/8 * Math.PI;
         mouse_end_point = (8+(8 - curvature_of_mouth_ratio * 7))/8 * Math.PI;
       }

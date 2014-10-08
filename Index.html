@@ -8,24 +8,40 @@
   <script type="text/javascript" src="Scripts/chernoff.js"></script>
 	<script type="text/javascript">
     $(document).ready(function () {
-      var width = 500;
+      var width = 900;
       var height = width;
 
       //default ratio to 0.1 ~ 1
       var half_length_of_eyes_ratio = 0.4;
       var position_of_eyes_ratio = 0.3;
       var angle_of_eyebrow_ratio = 0.5;
-      var curvature_of_mouth_ratio = 0.1;
+      var curvature_of_mouth_ratio = 0.8;
       //var slant_of_eyes_ratio = 0.5;
 
-      var c = document.getElementById('chernoff_canvas');
-      c.width = width;
-      c.height = height;
+      var c1 = document.getElementById('chernoff_canvas_1');
+      c1.width = width;
+      c1.height = height;
 
-      $('#chernoff_canvas').chernoff({
-        canvas: c,
-        width: width,
-        height: height,
+      $('#chernoff_canvas_1').chernoff({
+        canvas: c1,
+        half_length_of_eyes_ratio: half_length_of_eyes_ratio,
+        position_of_eyes_ratio: position_of_eyes_ratio,
+        angle_of_eyebrow_ratio: angle_of_eyebrow_ratio,
+        curvature_of_mouth_ratio: curvature_of_mouth_ratio
+      });
+
+      half_length_of_eyes_ratio = 0.6;
+      position_of_eyes_ratio = 0.5;
+      angle_of_eyebrow_ratio = 0.2;
+      curvature_of_mouth_ratio = 0.8;
+
+
+      var c2 = document.getElementById('chernoff_canvas_2');
+      c2.width = width;
+      c2.height = height;
+
+      $('#chernoff_canvas_2').chernoff({
+        canvas: c2,
         half_length_of_eyes_ratio: half_length_of_eyes_ratio,
         position_of_eyes_ratio: position_of_eyes_ratio,
         angle_of_eyebrow_ratio: angle_of_eyebrow_ratio,
@@ -38,7 +54,8 @@
 
 <body class="center" style="margin-top:10px;">
   <div class="center" style="padding:10px 0 0 0; max-width:1300px; margin-bottom:5px;">
-    <canvas id="chernoff_canvas"></canvas>
+    <canvas id="chernoff_canvas_1"></canvas>
+    <canvas id="chernoff_canvas_2"></canvas>
   </div>
 </body>
 </html>
