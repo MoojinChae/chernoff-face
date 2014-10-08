@@ -8,14 +8,14 @@
   <script type="text/javascript" src="Scripts/chernoff.js"></script>
 	<script type="text/javascript">
     $(document).ready(function () {
-      var width = 900;
+      var width = 200;
       var height = width;
 
       //default ratio to 0.1 ~ 1
-      var half_length_of_eyes_ratio = 0.4;
-      var position_of_eyes_ratio = 0.3;
-      var angle_of_eyebrow_ratio = 0.5;
-      var curvature_of_mouth_ratio = 0.8;
+      var half_length_of_eyes_ratio = 0.1;
+      var position_of_eyes_ratio = 0.1;
+      var angle_of_eyebrow_ratio = 0.1;
+      var curvature_of_mouth_ratio = 0.9;
       //var slant_of_eyes_ratio = 0.5;
 
       var c1 = document.getElementById('chernoff_canvas_1');
@@ -30,10 +30,10 @@
         curvature_of_mouth_ratio: curvature_of_mouth_ratio
       });
 
-      half_length_of_eyes_ratio = 0.6;
+      half_length_of_eyes_ratio = 0.9;
       position_of_eyes_ratio = 0.5;
-      angle_of_eyebrow_ratio = 0.2;
-      curvature_of_mouth_ratio = 0.8;
+      angle_of_eyebrow_ratio = 0.9;
+      curvature_of_mouth_ratio = 0.9;
 
 
       var c2 = document.getElementById('chernoff_canvas_2');

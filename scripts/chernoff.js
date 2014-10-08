@@ -111,15 +111,20 @@
       var mouse_length = w * 1/4 - mouse_curvature;
 
       var mouse_start_point, mouse_end_point, mouse_y_point;
+      
+      if(w < 200) var mouse_factor = 10;
+      else if(w < 300) var mouse_factor = 9;
+      else var mouse_factor = 8;
+
       if(curvature_of_mouth_ratio > 0.5) {
         mouse_y_point = points[7].y + h * 2/5 + mouse_curvature + (500-h)/5;
-        mouse_start_point = (8+(curvature_of_mouth_ratio * 7))/8 * Math.PI;
-        mouse_end_point = (8+(8 - curvature_of_mouth_ratio * 7))/8 * Math.PI;
+        mouse_start_point = (mouse_factor + curvature_of_mouth_ratio * 7)/mouse_factor * Math.PI;
+        mouse_end_point = (mouse_factor*2 - curvature_of_mouth_ratio * 7)/mouse_factor * Math.PI;
       }
       else {
         mouse_y_point = points[7].y - w * 1/6 + mouse_curvature;
-        mouse_start_point = (8 - curvature_of_mouth_ratio * 7)/8 * Math.PI;
-        mouse_end_point = (curvature_of_mouth_ratio * 7)/8 * Math.PI;
+        mouse_start_point = (mouse_factor - curvature_of_mouth_ratio * 7)/mouse_factor * Math.PI;
+        mouse_end_point = (curvature_of_mouth_ratio * 7)/mouse_factor * Math.PI;
       }
 
       context.beginPath();
